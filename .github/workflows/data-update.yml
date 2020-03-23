@@ -25,6 +25,7 @@ jobs:
       - name: run script
         run: |
           sed -i -E "s/\[本ツール（data_setup）が置かれているディレクトリ\]/\./" ./data_setup/script/run_gen.sh
+          sed -i -E "s/\[本ツール（data_setup）が置かれているディレクトリ\]/\./" ./data_setup/config.ini
           cat ./data_setup/script/run_gen.sh
           ./data_setup/script/run_gen.sh
       - name: Copy data files
