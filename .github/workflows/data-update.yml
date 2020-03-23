@@ -9,6 +9,8 @@ jobs:
   data_update_job:
     runs-on: ubuntu-latest
     name: data update
+    env:
+      TZ: Asia/Tokyo
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -37,6 +39,6 @@ jobs:
         uses: peter-evans/create-pull-request@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: data/
+          branch: data/update
           branch-suffix: timestamp
           title: Update data
