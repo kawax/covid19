@@ -19,11 +19,9 @@ jobs:
         with:
           python-version: '3.8'
       - name: pip install
-        run: |
-          pip install pandas requests
+        run: pip install pandas requests
       - name: git clone data_setup
-        run: |
-          git clone --depth 1 https://github.com/Code-for-Fukuoka/data_setup data_setup
+        run: git clone --depth 1 https://github.com/Code-for-Fukuoka/data_setup data_setup
       - name: run script
         run: |
           sed -i -E "s|\[本ツール（data_setup）が置かれているディレクトリ\]|$GITHUB_WORKSPACE|" ./data_setup/script/run_gen.sh
