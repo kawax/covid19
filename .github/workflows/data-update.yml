@@ -18,9 +18,9 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: '3.8'
-      - name: pip
+      - name: pip install
         run: |
-          pip install pandas requests configparser
+          pip install pandas requests
       - name: git clone data_setup
         run: |
           git clone --depth 1 https://github.com/Code-for-Fukuoka/data_setup data_setup
@@ -31,7 +31,7 @@ jobs:
           cat ./data_setup/config.ini
           cd $GITHUB_WORKSPACE/data_setup/script/
           ./run_gen.sh
-      - name: Copy data files
+      - name: Copy data file
         run: |
           cd $GITHUB_WORKSPACE
           cp -f ./data_setup/gen_data/data.json ./data/data.json
