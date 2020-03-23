@@ -18,7 +18,7 @@ jobs:
           python-version: '3.8'
       - name: pip
         run: |
-          pip install pandas requests
+          pip install pandas requests configparser
       - name: git clone data_setup
         run: |
           git clone --depth 1 https://github.com/Code-for-Fukuoka/data_setup data_setup
