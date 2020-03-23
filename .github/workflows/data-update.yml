@@ -1,0 +1,30 @@
+name: data update
+
+on:
+  push:
+  schedule:
+    - cron: '5 * * * 0' #UTC
+
+jobs:
+  data_update_job:
+    runs-on: ubuntu-latest
+    name: data update
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.8'
+      - name: git clone data_setup
+        run: |
+          git clone --depth 1 https://github.com/Code-for-Fukuoka/data_setup data_setup
+      - name: run script
+        run: |
+          sed -i "s/[本ツール（data_setup）が置かれているディレクトリ]/./" ./data_setup/script/run_gen.sh
+          cat ./data_setup/script/run_gen.sh
+          ./data_setup/script/run_gen.sh
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
