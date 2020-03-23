@@ -21,9 +21,12 @@ jobs:
           git clone --depth 1 https://github.com/Code-for-Fukuoka/data_setup data_setup
       - name: run script
         run: |
-          sed -i "s/[本ツール（data_setup）が置かれているディレクトリ]/./" ./data_setup/script/run_gen.sh
+          sed -i -E "s/\[本ツール（data_setup）が置かれているディレクトリ\]/\./" ./data_setup/script/run_gen.sh
           cat ./data_setup/script/run_gen.sh
           ./data_setup/script/run_gen.sh
+      - name: Copy data files
+        run: |
+          cp -f ./data_setup/gen_data/data.json ./data/data.json
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
         with:
