@@ -28,7 +28,7 @@ jobs:
         run: |
           sed -i -E "s|\[本ツール（data_setup）が置かれているディレクトリ\]|$GITHUB_WORKSPACE|" ./data_setup/script/run_gen.sh
           sed -i -E "s|\[本ツール（data_setup）が置かれているディレクトリ\]|$GITHUB_WORKSPACE|" ./data_setup/config.ini
-          cat ./data_setup/config.ini
+          #cat ./data_setup/config.ini
           cd $GITHUB_WORKSPACE/data_setup/script/
           ./run_gen.sh
       - name: Copy data file
