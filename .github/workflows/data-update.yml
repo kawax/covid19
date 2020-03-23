@@ -1,0 +1,44 @@
+name: data update
+
+on:
+  push:
+  schedule:
+    - cron: '10 * * * *' #UTC
+
+jobs:
+  data_update_job:
+    runs-on: ubuntu-latest
+    name: data update
+    env:
+      TZ: Asia/Tokyo
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.8'
+      - name: pip install
+        run: pip install pandas requests
+      - name: git clone data_setup
+        run: git clone --depth 1 https://github.com/Code-for-Fukuoka/data_setup data_setup
+      - name: run script
+        run: |
+          sed -i -E "s|\[本ツール（data_setup）が置かれているディレクトリ\]|$GITHUB_WORKSPACE|" ./data_setup/script/run_gen.sh
+          sed -i -E "s|\[本ツール（data_setup）が置かれているディレクトリ\]|$GITHUB_WORKSPACE|" ./data_setup/config.ini
+          #cat ./data_setup/config.ini
+          cd $GITHUB_WORKSPACE/data_setup/script/
+          ./run_gen.sh
+      - name: Copy data file
+        run: |
+          cd $GITHUB_WORKSPACE
+          cp -f ./data_setup/gen_data/data.json ./data/data.json
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: data/update
+          branch-suffix: timestamp
+          title: Update data.json
+          commit-message: Update data.json
+          body: Update data.json
