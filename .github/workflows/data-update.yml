@@ -36,7 +36,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: data/update
-          branch-suffix: timestamp
+          #branch-suffix: timestamp
           title: Update data.json
           commit-message: Update data.json
           body: Update data.json
