@@ -46,5 +46,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: data/development
           title: Update data.json @ development
-          commit-message: Update data.json
           body: Update data.json
+          commit-message: Update data.json
