@@ -2,7 +2,7 @@ name: data update
 
 on:
   schedule:
-    - cron: '55 * * * *' #UTC
+    - cron: '0 * * * *' #UTC
 
 jobs:
   data_update_job:
@@ -35,6 +35,7 @@ jobs:
         uses: peter-evans/create-pull-request@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          base: development
           branch: data/update
           #branch-suffix: timestamp
           title: Update data.json
