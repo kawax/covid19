@@ -2,7 +2,7 @@ name: data update
 
 on:
   schedule:
-    - cron: '10 0 * * *' #UTC
+    - cron: '55 * * * *' #UTC
 
 jobs:
   data_update_job:
