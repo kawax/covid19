@@ -38,7 +38,7 @@ jobs:
           base: development
           branch: data/update
           #branch-suffix: timestamp
-          title: Update data.json
+          title: Update data.json @ development
           commit-message: Update data.json
           body: Update data.json
       - name: Create Pull Request @ master
@@ -48,6 +48,6 @@ jobs:
           base: master
           branch: data/update
           #branch-suffix: timestamp
-          title: Update data.json
+          title: Update data.json @ master
           commit-message: Update data.json
           body: Update data.json
