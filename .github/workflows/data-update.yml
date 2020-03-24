@@ -31,11 +31,21 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           cp -f ./data_setup/gen_data/data.json ./data/data.json
-      - name: Create Pull Request
+      - name: Create Pull Request @ development
         uses: peter-evans/create-pull-request@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: development
+          branch: data/update
+          #branch-suffix: timestamp
+          title: Update data.json
+          commit-message: Update data.json
+          body: Update data.json
+      - name: Create Pull Request @ master
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: master
           branch: data/update
           #branch-suffix: timestamp
           title: Update data.json
