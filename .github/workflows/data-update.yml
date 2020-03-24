@@ -1,5 +1,14 @@
 name: data update
 
+# data.jsonの自動更新
+#
+# 1. このワークフローからPull Requestが作られる。
+# 2. PRのFiles changedを見て時間しか変化がなければマージ不要。そのまま。
+# 3. マージが必要な変化があればマージしてdata/developmentブランチは削除。
+# 4. 次のワークフロー実行で新しいPRが作られるので繰り返し。
+# 5. 本番環境に反映させるにはdevelopmentからmasterブランチへのPRを手動で作る。
+#
+
 on:
   schedule:
     - cron: '0 * * * *' #UTC
