@@ -36,7 +36,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: development
-          branch: data/update
+          branch: data/development
           #branch-suffix: timestamp
           title: Update data.json @ development
           commit-message: Update data.json
@@ -46,7 +46,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: master
-          branch: data/update
+          branch: data/master
           #branch-suffix: timestamp
           title: Update data.json @ master
           commit-message: Update data.json
