@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WDIR="[本ツール（data_setup）が置かれているディレクトリ]"
+WDIR="/home/runner/work/covid19-fukuoka/covid19-fukuoka/"
 TDIR="data_setup"
 SDIR="script"
 IDIR="input_data"

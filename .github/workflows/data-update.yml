@@ -32,8 +32,8 @@ jobs:
       #  run: git clone --depth 1 https://github.com/Code-for-Fukuoka/data_setup data_setup
       - name: run script
         run: |
-          sed -i -E "s|\[本ツール（data_setup）が置かれているディレクトリ\]|$GITHUB_WORKSPACE|" ./data_setup/script/run_gen.sh
-          sed -i -E "s|\[本ツール（data_setup）が置かれているディレクトリ\]|$GITHUB_WORKSPACE|" ./data_setup/config.ini
+          #sed -i -E "s|\[本ツール（data_setup）が置かれているディレクトリ\]|$GITHUB_WORKSPACE|" ./data_setup/script/run_gen.sh
+          #sed -i -E "s|\[本ツール（data_setup）が置かれているディレクトリ\]|$GITHUB_WORKSPACE|" ./data_setup/config.ini
           cd $GITHUB_WORKSPACE/data_setup/script/
           ./run_gen.sh
       - name: Copy data file
