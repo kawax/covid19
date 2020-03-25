@@ -97,4 +97,4 @@ sw.*
 # Nuxt
 nuxt.config.ts
 
-data_setup
+#data_setup
