@@ -34,7 +34,7 @@ jobs:
       - name: run script
         run: |
           cd $GITHUB_WORKSPACE/data_setup/script/
-          ./run_gen.sh
+          ./run_test.sh
       - name: Copy data file
         run: |
           cd $GITHUB_WORKSPACE
