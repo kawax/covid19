@@ -10,7 +10,7 @@ name: data update
 #
 
 on:
-  push:
+  #push:
   schedule:
     - cron: '0 * * * *' #UTC
 
