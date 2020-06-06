@@ -10,9 +10,9 @@ name: data update
 #
 
 on:
-  #push:
-  schedule:
-    - cron: '0 * * * *' #UTC
+  push:
+  #schedule:
+  #  - cron: '0 * * * *' #UTC
 
 jobs:
   data_update_job:
